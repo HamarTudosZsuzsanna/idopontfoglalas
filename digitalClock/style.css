@@ -1,0 +1,58 @@
+#clock-box{
+    /*width: 800px;
+    height: 200px;*/
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+    padding: 10px;
+                                                
+}
+#day-container-clock{
+    margin: 10px;
+    color: rgba(128, 128, 128, 0.6);
+    text-transform: uppercase;
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+#date-container-clock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+#number-clock{
+    /*font-size: 100px;*/
+    margin: 10px;
+    font-family: 'Digital Numbers', sans-serif;
+}
+#date-clock{
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 5px;
+    /*font-size: larger;*/
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    color: black;
+}
+.active-day-clock{
+    color: white;
+    font-size: 18px;
+}
+.days-clock{
+    padding-bottom: 1px;
+    font-size: 12px;
+}
