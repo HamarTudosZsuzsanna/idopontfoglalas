@@ -16,20 +16,15 @@ export function createHairdresserCard(hairdresser) {
   card.innerHTML = `
         <div class="card-hairdresser" style="width: 18rem;">
             <div class="card-body card-body-hairdressers">
-                <h4 class="card-title text-uppercase text-light fw-bold mt-3 mb-3">${
-                  hairdresser.name
-                }</h4>
+                <h4 class="card-title text-uppercase text-light fw-bold mt-3 mb-3">${hairdresser.name
+    }</h4>
                 <h6 class="card-subtitle mb-2 text-body-secondary"><ul>${servicesList}</ul></h6>
-                <p class="card-text"><a href="mailto:${
-                  hairdresser.email
-                }" class="text-decoration-none text-dark">${
-    hairdresser.email
-  }</a></p>
-                <p class="card-text"><a href="tel:${
-                  hairdresser.phoneNumber
-                }" class="text-decoration-none text-dark">${
-    hairdresser.phoneNumber
-  }</a></p>
+                <p class="card-text"><a href="mailto:${hairdresser.email
+    }" class="text-decoration-none text-dark">${hairdresser.email
+    }</a></p>
+                <p class="card-text"><a href="tel:${hairdresser.phoneNumber
+    }" class="text-decoration-none text-dark">${hairdresser.phoneNumber
+    }</a></p>
                 <button class="btn btn-outline-dark mb-2 open-modal-btn" data-id="${hairdresser.getID()}">Foglalás</button>
             </div>
         </div>
@@ -179,15 +174,23 @@ function openModal(hairdresser) {
   sendButton.addEventListener("click", () => {
     errorText.textContent = "";
 
-    customerName = document.querySelector("#name").value;
-    customerPhone = document.querySelector("#phone").value;
+    let nameRegex = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű\s]+$/;
 
-    if (!customerName || !customerPhone) {
+    let nameInput = document.querySelector("#name").value.trim();
+    let phoneInput = document.querySelector("#phone").value.trim();
+
+    if (!nameInput) {
+      errorText.textContent = "A név mező kitöltése kötelező!";
+    } else if (!nameRegex.test(nameInput)) {
+      errorText.textContent = "A beírt névformátum helytelen! Kérlek, csak betűket adj meg.";
+    } else if (!phoneInput) {
       errorText.textContent = "Minden mező kitöltése kötelező!";
-      return;
     } else {
       errorText.textContent = "";
+      customerName = nameInput;
+      customerPhone = phoneInput;
     }
+
 
     const appointmentData = {
       hairdresser_id: hairdresser.getID(),
