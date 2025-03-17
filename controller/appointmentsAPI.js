@@ -117,7 +117,7 @@ export async function sendAppointmentData(appointmentData, hairdresser) {
     thankYouMessage(appointmentData, hairdresserName);
   } catch (error) {
     console.error("Hiba:", error);
-    alert("Hiba történt a foglalás elküldésekor.");
+    //alert("Hiba történt a foglalás elküldésekor.");
   }
 }
 
